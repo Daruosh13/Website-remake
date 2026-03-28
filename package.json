@@ -1,0 +1,8 @@
+{
+  "name": "piksort",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "python serve.py",
+    "dev": "npx serve . -p 3000"
+  }
+}

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Free ITP Library — Access Our Resource Hub | Piksort</title>
+  <meta name="description" content="Get instant access to our library of 77 industry-standard Inspection and Test Plans, free for your next project."/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+  <script>WebFont.load({ google: { families: ["Montserrat:300,400,500,600,700,800"] } });</script>
+  <link href="https://cdn.prod.website-files.com/691a64dbefbb704b5550e811/css/piksort-staging.webflow.shared.48851f6b1.css" rel="stylesheet"/>
+  <style>
+    :root {
+      --blue: #476CFF;
+      --blue-dark: #2d4fd4;
+      --blue-darkest: #1a2f8a;
+      --black: #0d0d0d;
+      --gray-100: #f5f5f7;
+      --gray-200: #e8e8ec;
+      --gray-500: #6b6b75;
+      --gray-700: #2c2c35;
+      --white: #ffffff;
+      --radius: 0.75rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f5f5f7;
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    .sub-nav {
+      background: var(--black);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .sub-nav img { height: 28px; }
+    .sub-nav a.back-link {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .sub-nav a.back-link:hover { color: #fff; }
+
+    /* ── LAYOUT ── */
+    .sub-page {
+      min-height: calc(100vh - 62px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+    }
+
+    /* ── LEFT PANEL ── */
+    .sub-left {
+      background: var(--black);
+      padding: 4rem 3rem 4rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .sub-left::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://cdn.prod.website-files.com/691d7e1194f0dd76c4566fff/698bcab485064aec3e71d462_Gemini_Generated_Image_z37ko1z37ko1z37k.webp') center/cover no-repeat;
+      opacity: 0.18;
+    }
+    .sub-left-content { position: relative; z-index: 1; }
+    .sub-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(71,108,255,0.15);
+      border: 1px solid rgba(71,108,255,0.3);
+      color: #8fa5ff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.8rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+    .sub-left h1 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    .sub-left h1 span { color: #8fa5ff; }
+    .sub-left p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 440px;
+    }
+    .sub-benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .sub-benefit {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .sub-benefit-icon {
+      width: 28px; height: 28px;
+      background: rgba(71,108,255,0.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: #8fa5ff;
+      font-size: 0.8rem;
+    }
+    .sub-count {
+      display: flex;
+      gap: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .sub-count-item { text-align: center; }
+    .sub-count-num {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      display: block;
+    }
+    .sub-count-label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── RIGHT PANEL ── */
+    .sub-right {
+      background: #fff;
+      padding: 4rem 4rem 4rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .sub-right h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.4rem;
+    }
+    .sub-right .sub-subtitle {
+      color: var(--gray-500);
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+    }
+
+    .sub-form { display: flex; flex-direction: column; gap: 1.1rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-group label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .form-group input {
+      padding: 0.8rem 1rem;
+      border: 1.5px solid var(--gray-200);
+      border-radius: 0.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      color: var(--black);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      background: var(--gray-100);
+    }
+    .form-group input:focus {
+      border-color: var(--blue);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(71,108,255,0.08);
+    }
+    .form-group input.error { border-color: #e53e3e; }
+    .form-group .field-error {
+      font-size: 0.75rem;
+      color: #e53e3e;
+      display: none;
+    }
+    .form-group.has-error .field-error { display: block; }
+
+    .form-hint {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .sub-checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      padding: 1rem;
+      background: var(--gray-100);
+      border-radius: 0.5rem;
+      border: 1px solid var(--gray-200);
+    }
+    .sub-checkbox-group input[type="checkbox"] {
+      width: 16px; height: 16px;
+      margin-top: 2px;
+      accent-color: var(--blue);
+      flex-shrink: 0;
+    }
+    .sub-checkbox-group label {
+      font-size: 0.82rem;
+      color: var(--gray-700);
+      line-height: 1.5;
+      cursor: pointer;
+    }
+    .sub-checkbox-group label strong { color: var(--black); }
+
+    .sub-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.5rem;
+      background: var(--blue);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .sub-submit:hover { background: var(--blue-dark); }
+    .sub-submit:active { transform: scale(0.98); }
+    .sub-submit svg { width: 16px; height: 16px; }
+
+    .sub-privacy {
+      font-size: 0.72rem;
+      color: var(--gray-500);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* ── SUCCESS STATE ── */
+    .sub-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .sub-success.visible { display: flex; }
+    .success-icon {
+      width: 60px; height: 60px;
+      background: #e8f0fe;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue);
+      font-size: 1.5rem;
+    }
+    .sub-success h3 { font-size: 1.4rem; font-weight: 700; }
+    .sub-success p { color: var(--gray-500); font-size: 0.9rem; }
+    .sub-success a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--blue);
+      color: #fff;
+      padding: 0.8rem 1.8rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .sub-success a:hover { background: var(--blue-dark); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .sub-page { grid-template-columns: 1fr; }
+      .sub-left { padding: 3rem 2rem; }
+      .sub-right { padding: 3rem 2rem; }
+      .sub-count { gap: 1.5rem; }
+    }
+    @media (max-width: 480px) {
+      .sub-left, .sub-right { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="sub-nav">
+  <a href="/">
+    <img src="https://cdn.prod.website-files.com/691a64dbefbb704b5550e811/691a9b73f40ad957b6975efe_Navbar%20Brand.svg" alt="Piksort"/>
+  </a>
+  <a href="/" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Back to home
+  </a>
+</nav>
+
+<!-- MAIN -->
+<main class="sub-page">
+
+  <!-- LEFT: Value prop -->
+  <div class="sub-left">
+    <div class="sub-left-content">
+      <div class="sub-badge">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Free Resource Hub
+      </div>
+      <h1>77 Industry-Standard ITPs, <span>Ready for Your Next Project</span></h1>
+      <p>
+        Our ITP library is curated from real construction projects across mining, oil &amp; gas, and civil infrastructure.
+        Every document is classified by discipline — no project or company names — so you can adapt them straight to your scope of work.
+      </p>
+
+      <div class="sub-benefits">
+        <div class="sub-benefit">
+          <div class="sub-benefit-icon">✓</div>
+          <span>Covers civil, structural, piping, mechanical, E&amp;I and more</span>
+        </div>
+        <div class="sub-benefit">
+          <div class="sub-benefit-icon">✓</div>
+          <span>Deduplicated and reviewed — only the latest revisions</span>
+        </div>
+        <div class="sub-benefit">
+          <div class="sub-benefit-icon">✓</div>
+          <span>Fully anonymised — no client, company or project references</span>
+        </div>
+        <div class="sub-benefit">
+          <div class="sub-benefit-icon">✓</div>
+          <span>Excel, Word and PDF formats available for download</span>
+        </div>
+        <div class="sub-benefit">
+          <div class="sub-benefit-icon">✓</div>
+          <span>New ITPs added regularly — stay ahead of your next tender</span>
+        </div>
+      </div>
+
+      <div class="sub-count">
+        <div class="sub-count-item">
+          <span class="sub-count-num">77</span>
+          <span class="sub-count-label">ITPs Available</span>
+        </div>
+        <div class="sub-count-item">
+          <span class="sub-count-num">8</span>
+          <span class="sub-count-label">Disciplines</span>
+        </div>
+        <div class="sub-count-item">
+          <span class="sub-count-num">100%</span>
+          <span class="sub-count-label">Free Access</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Form -->
+  <div class="sub-right">
+
+    <!-- Form state -->
+    <div id="formState">
+      <h2>Get Instant Access</h2>
+      <p class="sub-subtitle">We'll send you a link and notify you when new resources are published.</p>
+
+      <form class="sub-form" id="subscribeForm" novalidate>
+
+        <div class="form-group" id="group-name">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Jane Smith" autocomplete="name"/>
+          <span class="field-error">Please enter your full name.</span>
+        </div>
+
+        <div class="form-group" id="group-email">
+          <label for="workEmail">Work Email</label>
+          <input type="email" id="workEmail" name="workEmail" placeholder="jane@yourcompany.com.au" autocomplete="email"/>
+          <span class="field-error">Please enter a valid work email address.</span>
+        </div>
+
+        <div class="form-group" id="group-mobile">
+          <label for="mobile">Mobile Number</label>
+          <input type="tel" id="mobile" name="mobile" placeholder="+61 4xx xxx xxx" autocomplete="tel"/>
+          <span class="field-error">Please enter your mobile number.</span>
+        </div>
+
+        <div class="form-group" id="group-role">
+          <label for="role">Your Role</label>
+          <input type="text" id="role" name="role" placeholder="e.g. Project Manager, QA Engineer" autocomplete="organization-title"/>
+          <span class="field-error">Please enter your role.</span>
+        </div>
+
+        <div class="sub-checkbox-group">
+          <input type="checkbox" id="subscribeUpdates" name="subscribeUpdates" checked/>
+          <label for="subscribeUpdates">
+            <strong>Keep me updated</strong> — notify me when Piksort releases new ITP templates,
+            quality tools, and resources built specifically for construction project teams.
+          </label>
+        </div>
+
+        <button type="submit" class="sub-submit">
+          Access the ITP Library
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+
+        <p class="sub-privacy">
+          🔒 We respect your privacy. No spam — ever. Unsubscribe any time.
+        </p>
+
+      </form>
+    </div>
+
+    <!-- Success state -->
+    <div class="sub-success" id="successState">
+      <div class="success-icon">✓</div>
+      <h3>You're in!</h3>
+      <p>Access to our full ITP library has been unlocked. Click below to start browsing.</p>
+      <a href="resources.html">
+        Browse the ITP Library
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <p style="font-size:0.75rem; color: #999; margin-top: 0.5rem;">
+        We'll also email you when new resources are added.
+      </p>
+    </div>
+
+  </div>
+</main>
+
+<script>
+(function () {
+  // If already subscribed, go straight to resources
+  if (localStorage.getItem('piksort_subscribed') === 'true') {
+    window.location.href = 'resources.html';
+    return;
+  }
+
+  const form = document.getElementById('subscribeForm');
+  const formState = document.getElementById('formState');
+  const successState = document.getElementById('successState');
+
+  function validateEmail(email) {
+    // Basic email + reject free providers for "work" email
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!re.test(email)) return false;
+    const freeProviders = ['gmail.com','yahoo.com','hotmail.com','outlook.com','icloud.com','live.com','me.com','msn.com'];
+    const domain = email.split('@')[1].toLowerCase();
+    return !freeProviders.includes(domain);
+  }
+
+  function validateMobile(mobile) {
+    return mobile.replace(/[\s\-\(\)]/g, '').length >= 8;
+  }
+
+  function setError(groupId, hasError) {
+    const group = document.getElementById(groupId);
+    if (!group) return;
+    group.classList.toggle('has-error', hasError);
+    const input = group.querySelector('input');
+    if (input) input.classList.toggle('error', hasError);
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('workEmail').value.trim();
+    const mobile = document.getElementById('mobile').value.trim();
+    const role = document.getElementById('role').value.trim();
+    const subscribe = document.getElementById('subscribeUpdates').checked;
+
+    let valid = true;
+
+    setError('group-name', !name);
+    if (!name) valid = false;
+
+    const emailOk = validateEmail(email);
+    setError('group-email', !emailOk);
+    if (!emailOk) {
+      const errEl = document.querySelector('#group-email .field-error');
+      if (errEl) {
+        if (!email) errEl.textContent = 'Please enter your work email address.';
+        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errEl.textContent = 'Please enter a valid email address.';
+        else errEl.textContent = 'Please use your work email address (not Gmail, Outlook, etc.).';
+      }
+      valid = false;
+    }
+
+    setError('group-mobile', !validateMobile(mobile));
+    if (!validateMobile(mobile)) valid = false;
+
+    setError('group-role', !role);
+    if (!role) valid = false;
+
+    if (!valid) return;
+
+    // Store subscription in localStorage
+    localStorage.setItem('piksort_subscribed', 'true');
+    localStorage.setItem('piksort_subscriber', JSON.stringify({
+      name, email, mobile, role, subscribe,
+      timestamp: new Date().toISOString()
+    }));
+
+    // Show success
+    formState.style.display = 'none';
+    successState.classList.add('visible');
+  });
+
+  // Clear errors on input
+  ['fullName', 'workEmail', 'mobile', 'role'].forEach(function (id) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', function () {
+        const group = el.closest('.form-group');
+        if (group) {
+          group.classList.remove('has-error');
+          el.classList.remove('error');
+        }
+      });
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
