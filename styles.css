@@ -10736,3 +10736,44 @@ figcaption {
 .nav_container > .button.is-black {
   margin-left: 0.25rem;
 }
+
+/* ── Mobile nav open state ───────────────────────────────────────── */
+@media screen and (max-width: 991px) {
+  .w-nav-menu.w--open {
+    display: flex !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 300;
+  }
+
+  .nav-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(0,0,0,0.35);
+  }
+
+  .menu-icon4_line-top,
+  .menu-icon4_line-middle-top,
+  .menu-icon4_line-middle-base,
+  .menu-icon4_line-bottom {
+    transition: transform 0.25s ease, opacity 0.2s ease;
+    transform-origin: center;
+  }
+
+  .menu-icon4_wrapper.is-open .menu-icon4_line-top {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-icon4_wrapper.is-open .menu-icon4_line-middle-top {
+    transform: rotate(45deg);
+  }
+  .menu-icon4_wrapper.is-open .menu-icon4_line-middle-base {
+    opacity: 0;
+  }
+  .menu-icon4_wrapper.is-open .menu-icon4_line-bottom {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}

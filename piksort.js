@@ -10,16 +10,44 @@
 
   /* ───────────────────────────── NAV ───────────────────────────── */
 
-  // Hamburger / mobile menu toggle
-  const navBtn = document.querySelector('.nav_button');
+  // Hamburger / mobile menu
+  const navBtn  = document.querySelector('.nav_button');
   const navMenu = document.querySelector('.nav_menu');
+  const navIcon = navBtn?.querySelector('.menu-icon4_wrapper');
+
+  // Overlay element for clicking outside to close
+  const overlay = document.createElement('div');
+  overlay.className = 'nav-overlay';
+  overlay.style.display = 'none';
+  document.body.appendChild(overlay);
+
+  function openMenu() {
+    navMenu.classList.add('w--open');
+    navBtn.setAttribute('aria-expanded', 'true');
+    navIcon?.classList.add('is-open');
+    overlay.style.display = 'block';
+  }
+
+  function closeMenu() {
+    navMenu.classList.remove('w--open');
+    navBtn.setAttribute('aria-expanded', 'false');
+    navIcon?.classList.remove('is-open');
+    overlay.style.display = 'none';
+  }
+
   if (navBtn && navMenu) {
     navBtn.addEventListener('click', () => {
-      const open = navMenu.classList.toggle('w--open');
-      navBtn.setAttribute('aria-expanded', open);
-      navBtn.querySelector('.menu-icon4_wrapper')?.classList.toggle('is-open', open);
+      navMenu.classList.contains('w--open') ? closeMenu() : openMenu();
+    });
+
+    // Close when any nav link is clicked
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
     });
   }
+
+  // Close on overlay click
+  overlay.addEventListener('click', closeMenu);
 
   // Dropdown menus (hover on desktop, click on mobile)
   document.querySelectorAll('.nav_dropdown').forEach(dropdown => {
@@ -45,7 +73,8 @@
       dropdown.addEventListener('mouseenter', openDropdown);
       dropdown.addEventListener('mouseleave', closeDropdown);
     }
-    toggle.addEventListener('click', () => {
+    toggle.addEventListener('click', e => {
+      e.stopPropagation();
       const isOpen = list.classList.contains('w--open');
       isOpen ? closeDropdown() : openDropdown();
     });
