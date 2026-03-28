@@ -11233,3 +11233,12 @@ figcaption {
   .ft-legals { flex-wrap: wrap; gap: 1rem; }
 }
 
+
+/* ── Products dropdown: 4 columns for Quality Completion addition ── */
+.nav_dropdown-inner.w-dyn-items {
+  grid-template-columns: repeat(4, 1fr);
+}
+/* Solutions dropdown only has 2 items — keep it narrower */
+.nav_dropdown:nth-child(2) .nav_dropdown-inner.w-dyn-items {
+  grid-template-columns: repeat(2, 1fr);
+}
