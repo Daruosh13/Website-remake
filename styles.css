@@ -10777,3 +10777,292 @@ figcaption {
     transform: translateY(-8px) rotate(-45deg);
   }
 }
+
+/* ── Features: horizontal swipe carousel on mobile ────────────────── */
+@media screen and (max-width: 767px) {
+  .hm-feat_outer-content {
+    position: relative;
+  }
+
+  .hm-feat_content {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.875rem;
+    padding: 0.5rem 1.25rem 1.5rem;
+    margin: 0 -1.25rem;
+    scrollbar-width: none;
+    cursor: grab;
+  }
+  .hm-feat_content::-webkit-scrollbar { display: none; }
+  .hm-feat_content:active { cursor: grabbing; }
+
+  .hm-feat_card {
+    flex: 0 0 82vw !important;
+    width: 82vw !important;
+    max-width: 340px !important;
+    scroll-snap-align: start;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  /* Swipe hint dots */
+  .feat-scroll-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 0.75rem;
+  }
+  .feat-scroll-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.25;
+    transition: opacity 0.2s, width 0.2s;
+  }
+  .feat-scroll-dot.active {
+    opacity: 1;
+    width: 18px;
+    border-radius: 3px;
+  }
+
+  /* Swipe hint label */
+  .feat-swipe-hint {
+    text-align: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    opacity: 0.45;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Hide swipe hint on desktop */
+@media screen and (min-width: 768px) {
+  .feat-scroll-dots,
+  .feat-swipe-hint { display: none; }
+}
+
+/* ── Testimonials: better touch targets + arrows ───────────────────── */
+.splide__arrows.is-hm-testi {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.splide__arrow-custom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 0.15s, background 0.15s;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.splide__arrow-custom:hover { opacity: 0.7; }
+.splide__arrow-custom:active { opacity: 0.5; }
+
+@media screen and (max-width: 767px) {
+  .splide__arrow-custom {
+    width: 52px;
+    height: 52px;
+  }
+
+  /* Pagination dots – larger tap targets on mobile */
+  #testimonialSplide .splide__pagination__page {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+  }
+
+  .hm-testi_card {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+/* ───────────────── SOCIAL PROOF CAROUSEL (is-hm-proof) ─────────────────── */
+
+.section.is-hm-proof {
+  padding-top: 5rem;
+  background-color: var(--color--neutral-100, #f5f5f5);
+  overflow: hidden;
+}
+
+.sp-header-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 3rem;
+}
+
+/* ── Carousel outer container ── */
+.sp-carousel-outer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Edge fade masks */
+.sp-carousel-outer::before,
+.sp-carousel-outer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.sp-carousel-outer { position: relative; }
+
+.sp-carousel-outer::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color--neutral-100, #f5f5f5) 0%, transparent 100%);
+}
+.sp-carousel-outer::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color--neutral-100, #f5f5f5) 0%, transparent 100%);
+}
+
+/* ── Track ── */
+.sp-track {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.sp-inner {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1.25rem;
+  will-change: transform;
+}
+
+/* LTR: scroll left */
+.sp-track--ltr .sp-inner {
+  animation: sp-scroll-ltr 55s linear infinite;
+}
+/* RTL: scroll right */
+.sp-track--rtl .sp-inner {
+  animation: sp-scroll-rtl 65s linear infinite;
+}
+
+.sp-track:hover .sp-inner {
+  animation-play-state: paused;
+}
+
+@keyframes sp-scroll-ltr {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes sp-scroll-rtl {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* ── Card ── */
+.sp-card {
+  flex-shrink: 0;
+  width: 280px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  border: 1px solid rgba(0,0,0,0.07);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  cursor: default;
+}
+.sp-card:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+/* ── Tags ── */
+.sp-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25em 0.65em;
+  border-radius: 999px;
+  width: fit-content;
+}
+.sp-tag--mining   { background: #FEF3C7; color: #92400E; }
+.sp-tag--energy   { background: #DBEAFE; color: #1E40AF; }
+.sp-tag--resources{ background: #D1FAE5; color: #065F46; }
+.sp-tag--infra    { background: #EDE9FE; color: #4C1D95; }
+.sp-tag--agri     { background: #DCFCE7; color: #14532D; }
+
+/* ── Text ── */
+.sp-project {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color--neutral-900, #111);
+  line-height: 1.3;
+}
+.sp-company {
+  font-size: 0.78rem;
+  color: var(--color--neutral-500, #6B7280);
+  font-weight: 500;
+}
+
+/* ── Stat ── */
+.sp-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+}
+.sp-num {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color--neutral-900, #111);
+  line-height: 1;
+}
+.sp-unit {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color--neutral-500, #6B7280);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Location ── */
+.sp-loc {
+  font-size: 0.72rem;
+  color: var(--color--neutral-400, #9CA3AF);
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+.sp-loc::before {
+  content: '📍';
+  font-size: 0.75em;
+}
+
+/* ── Mobile: smaller cards, tighter gap ── */
+@media screen and (max-width: 767px) {
+  .sp-card { width: 230px; padding: 1.25rem 1.25rem; }
+  .sp-num  { font-size: 1.4rem; }
+  .sp-carousel-outer::before,
+  .sp-carousel-outer::after { width: 3rem; }
+}
