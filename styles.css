@@ -11066,3 +11066,169 @@ figcaption {
   .sp-carousel-outer::before,
   .sp-carousel-outer::after { width: 3rem; }
 }
+
+/* ─────────────────────── CLEAN FOOTER (Legora-style) ───────────────────── */
+
+.section.is-footer {
+  background-color: #0d0d0d;
+  color: rgba(255,255,255,0.55);
+  padding: 5rem 0 0;
+}
+
+/* ── Top: brand + columns side by side ── */
+.ft-top {
+  display: grid;
+  grid-template-columns: 1fr 2.4fr;
+  gap: 4rem;
+  align-items: start;
+  padding-bottom: 4rem;
+}
+
+/* ── Brand column ── */
+.ft-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ft-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+  opacity: 0.9;
+}
+
+.ft-tagline {
+  font-size: 0.83rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.4);
+  max-width: 260px;
+  margin: 0;
+}
+
+.ft-socials {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.ft-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.55);
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+.ft-social-link:hover {
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+}
+
+/* ── Link columns grid ── */
+.ft-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.ft-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.ft-col-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 0.25rem;
+}
+
+.ft-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.ft-link {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: color 0.15s;
+  line-height: 1.4;
+}
+.ft-link:hover {
+  color: #fff;
+}
+
+/* ── Divider ── */
+.ft-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+}
+
+/* ── Bottom bar ── */
+.ft-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ft-copy {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.3);
+}
+
+.ft-legals {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.ft-legal-link {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.ft-legal-link:hover {
+  color: rgba(255,255,255,0.7);
+}
+
+/* ── Tablet ── */
+@media screen and (max-width: 991px) {
+  .ft-top {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .ft-tagline { max-width: 100%; }
+  .ft-cols {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 3rem;
+  }
+}
+
+/* ── Mobile ── */
+@media screen and (max-width: 479px) {
+  .section.is-footer { padding-top: 3.5rem; }
+  .ft-cols {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.5rem;
+  }
+  .ft-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ft-legals { flex-wrap: wrap; gap: 1rem; }
+}
