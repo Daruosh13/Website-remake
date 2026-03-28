@@ -177,8 +177,54 @@
       autoplay: true,
       interval: 5000,
       pauseOnHover: true,
+      drag: true,
+      swipeDistanceThreshold: 20,
     });
     splide.mount();
+    // Wire custom arrows that live outside the splide root
+    const prevBtn = document.querySelector('.splide__arrow--prev');
+    const nextBtn = document.querySelector('.splide__arrow--next');
+    if (prevBtn) prevBtn.addEventListener('click', () => splide.go('<'));
+    if (nextBtn) nextBtn.addEventListener('click', () => splide.go('>'));
+  }
+
+  /* ──────────────────── FEATURES SCROLL DOTS ─────────────────── */
+
+  function initFeatDots() {
+    const track = document.querySelector('.hm-feat_content');
+    if (!track) return;
+    const cards = [...track.querySelectorAll('.hm-feat_card')];
+    if (!cards.length) return;
+
+    // Only run on mobile (scroll-snap active)
+    if (window.innerWidth > 767) return;
+
+    // Insert swipe hint + dots below the track
+    const hint = document.createElement('p');
+    hint.className = 'feat-swipe-hint';
+    hint.textContent = 'SWIPE';
+    track.parentElement.insertBefore(hint, track.nextSibling);
+
+    const dotsWrap = document.createElement('div');
+    dotsWrap.className = 'feat-scroll-dots';
+    cards.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'feat-scroll-dot' + (i === 0 ? ' active' : '');
+      dotsWrap.appendChild(dot);
+    });
+    hint.after(dotsWrap);
+
+    const dots = [...dotsWrap.querySelectorAll('.feat-scroll-dot')];
+
+    function updateDots() {
+      const scrollLeft = track.scrollLeft;
+      const cardWidth = cards[0].offsetWidth + parseFloat(getComputedStyle(track).gap || 0);
+      const idx = Math.round(scrollLeft / cardWidth);
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+
+    track.addEventListener('scroll', updateDots, { passive: true });
+    updateDots();
   }
 
   // Wait for Splide + AutoScroll to load
@@ -340,11 +386,13 @@
       initStoryScroll();
       initPainScroll();
       initScrollAnimations();
+      initFeatDots();
     });
   } else {
     initStoryScroll();
     initPainScroll();
     initScrollAnimations();
+    initFeatDots();
   }
 
 })();
